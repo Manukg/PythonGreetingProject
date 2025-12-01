@@ -11,7 +11,7 @@ class TestGreet(unittest.TestCase):
         '''Testing Return Value'''
         self.assertEqual(greet("Alice"), "Welcome, Alice!")
     def test_greet_without_name(self):
-        '''Testing Null Value'''
+        '''Testing the Null Value'''
         self.assertEqual(greet(), "Welcome!")
 
 if __name__ == "__main__":
