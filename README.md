@@ -1,1 +1,1 @@
-Clone the file and pull your modifications. The github action will triger and execute the jobs
+[![Python application](https://github.com/Manukg/PythonGreetingProject/actions/workflows/main.yml/badge.svg)](https://github.com/Manukg/PythonGreetingProject/actions/workflows/main.yml)
