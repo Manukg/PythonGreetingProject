@@ -39,4 +39,8 @@ If a workflow run fails, click **“Re-run all jobs”** on that run’s page to
 - Useful for debugging intermittent issues.
 
 ---
+ 
 
+### Set up all required parameters in the Secrets section in GitHub.
+
+- Modified the workflow .yml file to send an email when linting or testing fails, using the dawidd6 action-send-mail@v3 action.
