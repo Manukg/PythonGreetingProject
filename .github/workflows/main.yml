@@ -52,7 +52,7 @@ jobs:
           from: ${{ secrets.MAIL_USERNAME }}
           to: "g.manukrishnan@gmail.com"
           body: |
-            Hello ,
+            Hello MK,
 
             A GitHub Action workflow has failed.
 
