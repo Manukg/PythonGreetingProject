@@ -1,4 +1,4 @@
-name: Python application
+name: Integration WorkFlow
 
 on:
   push:
@@ -26,9 +26,41 @@ jobs:
           pip install pylint
 
       - name: Run pylint
+        id: lint
+        continue-on-error: true
         run: |
           pylint **/*.py
 
       - name: Run unittest
+        id: tests
+        continue-on-error: true
         run: |
           python -m unittest discover -s . -p "test_*.py"
+
+      # ======================================================
+      # EMAIL NOTIFICATION (Send only if lint or test fails)
+      # ======================================================
+      - name: Send failure email
+        if: steps.lint.outcome == 'failure' || steps.tests.outcome == 'failure'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.MAIL_SERVER }}
+          server_port: ${{ secrets.MAIL_PORT }}
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "⚠️ GitHub Action Failed in ${{ github.repository }}"
+          from: ${{ secrets.MAIL_USERNAME }}
+          to: "g.manukrishnan@gmail.com"
+          body: |
+            Hello,
+
+            A GitHub Action workflow has failed.
+
+            Lint Result: ${{ steps.lint.outcome }}
+            Test Result: ${{ steps.tests.outcome }}
+
+            Commit: ${{ github.sha }}
+            Triggered by: ${{ github.actor }}
+
+            Regards,
+            GitHub Actions

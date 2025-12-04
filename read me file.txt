@@ -1,0 +1,9 @@
+
+### Re-run Existing Workflow
+If a workflow run fails, click **“Re-run all jobs”** on that run’s page to retry the same workflow:
+
+- Uses the **same commit/code** as the original run.
+- Useful for debugging intermittent issues.
+
+---
+
