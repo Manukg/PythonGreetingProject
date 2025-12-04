@@ -1,4 +1,4 @@
-name: Integration WorkFlow
+name: Integration WorkFlow 
 
 on:
   push:
@@ -52,7 +52,7 @@ jobs:
           from: ${{ secrets.MAIL_USERNAME }}
           to: "g.manukrishnan@gmail.com"
           body: |
-            Hello,
+            Hello ,
 
             A GitHub Action workflow has failed.
 
